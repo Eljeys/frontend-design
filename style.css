@@ -1,16 +1,55 @@
 :root {
-    background: #E3EDFB;
+  background: #e3edfb;
 
-    --color-icon: #0B3A67;
+  --color-icon: #0b3a67;
 
-    --image-width: 8rem;
-    --card-padding: 1rem;
+  --image-width: 8rem;
+  --card-padding: 1rem;
 
-    --font-heading: 1.75rem;
+  --font-heading: 1.75rem;
 
-    /* Når du synes, du er færdig, så ændr værdien herunder til '1' for at se dit resultat i browseren */
-    --hide-overlay: 0;
+  /* Når du synes, du er færdig, så ændr værdien herunder til '1' for at se dit resultat i browseren */
+  --hide-overlay: 1;
 }
 
-
 /* Begynd her... */
+.wrapper {
+  border: solid red;
+  display: flex;
+  padding: var(--card-padding);
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-self: flex-start;
+  gap: 1rem;
+}
+.info-wrapper {
+  border: solid green;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+
+  h1 {
+    line-height: 1.5rem;
+    font-weight: bold;
+    font-size: var(--font-heading);
+  }
+  span {
+    margin-top: 0.5rem;
+    color: rgb(28, 200, 143);
+  }
+}
+/*Hvorfor rammer det ik billedet når man bare skriver .image-wrapper ?*/
+.image-wrapper img {
+  max-width: var(--image-width);
+  border-radius: 50%;
+}
+.icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  * {
+    height: 25px;
+    width: 25px;
+    color: var(--color-icon);
+  }
+}
