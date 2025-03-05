@@ -1,4 +1,33 @@
 article {
-    max-width: 65ch;
-    margin-inline: auto;
+  --gutter: 3rem;
+  display: grid;
+  grid-template-columns:
+  /*column 1*/
+    [full-start]
+    minmax(var(--gutter), 1fr)
+    [breakout-start]
+    /*column 2*/
+    1fr
+    /*midter column*/
+    [content-start]
+    min(100% - (var(--gutter) * 2), 65ch)
+    [content-end]
+    /*column 4*/
+    1fr
+    [breakout-end]
+    /*column 5*/
+    minmax(var(--gutter), 1fr)
+    [full-end];
+}
+h2,
+p,
+h3 {
+  grid-column: content;
+}
+
+blockquote {
+  grid-column: breakout;
+}
+img {
+  grid-column: full;
 }
