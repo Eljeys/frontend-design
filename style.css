@@ -1,75 +1,139 @@
 .bento {
-    display: grid;
-    gap: var(--spacing-base);
+  display: grid;
+  gap: var(--spacing-base);
+  grid-template-areas:
+    "title title cup"
+    "man list cup"
+    "man list tag";
+  .title {
+    grid-area: title;
+    --bg: var(--color-brand-yellow);
+  }
 
-    .title {
-        --bg: var(--color-brand-yellow);
-    }
+  .list {
+    font-weight: bold;
+    grid-area: list;
+    --bg: var(--color-brand-coffee);
+    color: var(--color-text-light);
+    font-size: 2rem;
+    text-align: center;
+  }
+  .highlight {
+    color: var(--color-brand-yellow);
+  }
+  .image-1 {
+    grid-area: cup;
+    color: var(--color-text-accent);
+  }
+  .image-2 {
+    grid-area: man;
+  }
 
-    .list {
-        --bg: var(--color-brand-coffee);
-    }
-
-    .image-1 {
-        color: var(--color-text-accent);
-    }
-
-    .tag {
-        --bg: var(--color-brand-olive);
-        font-size: 2rem;
-        line-height: 1.2;
-    }
+  .tag {
+    grid-area: tag;
+    --bg: var(--color-brand-olive);
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .tagline {
+    color: var(--color-brand-yellow);
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 1.5rem;
+  }
 }
 
 .card {
-    border-radius: var(--border-radius);
-    background: var(--bg);
-    overflow: clip;
-
-    &:not(:has(img)) {
-        padding: var(--spacing-base);
-    }
+  container-type: inline-size;
+  border-radius: var(--border-radius);
+  background: var(--bg);
+  overflow: clip;
+  &:not(:has(img)) {
+    padding: var(--spacing-base);
+  }
 }
 
 h2 {
-    font-size: 4rem;
-    line-height: 1.1;
-    color: var(--color-text-dark);
-    margin-bottom: var(--spacing-base);
+  font-size: 4rem;
+  line-height: 1.1;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-base);
 }
 
 .website {
-    font-size: 1.2rem;
-    margin-top: auto;
+  font-size: 1.2rem;
+  margin-top: auto;
+  color: var(--color-brand-yellow);
 }
 
-
-
 @layer {
-    :root {
-        /* Brand Colors */
-        --color-brand-yellow: #FFB800;
-        --color-brand-olive: #4A5F32;
-        --color-brand-coffee: #5C3C2E;
+  :root {
+    /* Brand Colors */
+    --color-brand-yellow: #ffb800;
+    --color-brand-olive: #4a5f32;
+    --color-brand-coffee: #5c3c2e;
 
-        /* Background Colors */
-        --color-background-dark: #2C1810;
-        --color-background-primary: var(--color-brand-yellow);
-        --color-background-menu: var(--color-brand-coffee);
-        --color-background-accent: var(--color-brand-olive);
+    /* Background Colors */
+    --color-background-dark: #2c1810;
+    --color-background-primary: var(--color-brand-yellow);
+    --color-background-menu: var(--color-brand-coffee);
+    --color-background-accent: var(--color-brand-olive);
 
-        /* Text Colors */
-        --color-text-dark: var(--color-background-dark);
-        --color-text-light: #FFFFFF;
-        --color-text-accent: var(--color-brand-yellow);
+    /* Text Colors */
+    --color-text-dark: var(--color-background-dark);
+    --color-text-light: #ffffff;
+    --color-text-accent: var(--color-brand-yellow);
 
-        /* Component Colors */
-        --color-logo-icon: var(--color-text-dark);
-        --color-menu-highlight: var(--color-brand-yellow);
+    /* Component Colors */
+    --color-logo-icon: var(--color-text-dark);
+    --color-menu-highlight: var(--color-brand-yellow);
 
-        /* Layout */
-        --border-radius: 24px;
-        --spacing-base: 20px;
-        --spacing-large: 40px;
+    /* Layout */
+    --border-radius: 24px;
+    --spacing-base: 20px;
+    --spacing-large: 40px;
+  }
+}
+
+@media (width < 760px) {
+  .bento {
+    display: grid;
+    grid-template-areas:
+      "title title"
+      "cup man"
+      "list tag";
+  }
+}
+@media (width < 460px) {
+  .bento {
+    display: grid;
+    grid-template-areas:
+      "title"
+      "cup"
+      "man"
+      "list"
+      "tag";
+  }
+}
+
+@container (width < 650px) {
+  .tagline {
+    font-size: 1rem;
+  }
+  .title {
+    h2 {
+      font-size: 3rem;
     }
+  }
+}
+@container (width < 460px) {
+  .tagline {
+    font-size: 1rem;
+  }
+  .title {
+    h2 {
+      font-size: 2rem;
+    }
+  }
 }
