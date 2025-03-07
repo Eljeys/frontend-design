@@ -1,2 +1,17 @@
 /* Dine styles her */
-article {}
+article {
+  /*Her defineres selve reglen for variablen (den får tildelt en værdi*/
+  > * + * {
+    margin-block-start: var(--flow-space, 0.5rlh);
+  }
+  h2 {
+    --flow-space: 2rlh;
+  }
+  h3 {
+    --flow-space: 1rlh;
+  }
+  /*rammer børnen efter h3 (p)*/
+  h3 + * {
+    --flow-space: 0.25rlh;
+  }
+}
