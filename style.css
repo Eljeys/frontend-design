@@ -10,6 +10,8 @@
   --gray-800: #1f2937;
   --gray-900: #111827;
 
+  /*colors*/
+
   /*font-size*/
   /* Step -1: 14.2222px → 20px */
   --step--1: clamp(0.8889rem, 0.731rem + 0.6919vw, 1.25rem);
@@ -56,7 +58,6 @@
 
 body {
   font-family: system-ui, sans-serif;
-  /* font-size: var(--step--1); */
 }
 
 article {
@@ -101,6 +102,7 @@ article {
     --default-spacing: var(--space-s);
     font-size: var(--step-1);
   }
+  /*giv en mere pop farve*/
   .text-lead:is(p) {
     color: red;
   }
@@ -110,22 +112,25 @@ article {
 
   p {
     line-height: var(--body-lineHeight);
-    /*når et <p> kommer efter et andet element som ikke er <p>*/
 
     /*Når der er to <p> efter hinanden*/
     & + & {
       --default-spacing: var(--space-xs);
     }
+    /*når et <p> kommer efter et andet element som ikke er <p>*/
     *:not(&) + & {
       color: orange;
       --default-spacing: var(--space-2xs);
     }
   }
 
-  /* :is(h2 + p, h3 + p, h4 + p):not(figcaption) {
-    color: green;
-    --default-spacing: var(--space-2xs);
-  } */
+  p:nth-of-type(10) {
+    --default-spacing: var(--space-3xs);
+  }
+  p:nth-of-type(13) {
+    --default-spacing: var(--space-3xs);
+  }
+
   /*ER lidt i tvivl om om hvad * selector?  */
   figure {
     --default-spacing: var(--space-xs);
