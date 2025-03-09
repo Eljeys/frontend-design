@@ -72,6 +72,7 @@ article {
     margin-block-start: var(--default-spacing);
   }
   h1 {
+    margin-block-start: var(--space-xl);
     font-size: var(--step-5);
   }
   h2 {
