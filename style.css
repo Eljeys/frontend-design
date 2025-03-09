@@ -58,6 +58,10 @@
 
 body {
   font-family: system-ui, sans-serif;
+  /* background-color: var(--_c, var(--gray-100)); */
+  --_c: oklch(from var(--gray-100) calc(l - 0.1) c h);
+  color: var(--_c-2, var(--gray-600));
+  --_c-2: oklch(from var(--gray-600) calc(l - 0.7) c h);
 }
 
 article {
@@ -77,15 +81,15 @@ article {
 
   h2:has(+ h3) {
     margin-block-end: var(--space-2xs);
-    color: purple;
+    /* color: purple; */
   }
   /*Her vælges h3 som ikke er den første h3, men nr to h3*/
   h3:not(:first-of-type):nth-of-type(2) {
     --default-spacing: var(--space-2xs);
-    color: yellow;
+    /* color: yellow; */
   }
   h3 {
-    color: lightsalmon;
+    /* color: lightsalmon; */
     font-size: var(--step-3);
     --default-spacing: var(--space-l);
   }
@@ -104,7 +108,7 @@ article {
   }
   /*giv en mere pop farve*/
   .text-lead:is(p) {
-    color: red;
+    color: oklch(from red calc(l + 0.1) c h);
   }
   .text-small {
     font-size: var(--step--1);
@@ -119,7 +123,7 @@ article {
     }
     /*når et <p> kommer efter et andet element som ikke er <p>*/
     *:not(&) + & {
-      color: orange;
+      /* color: orange; */
       --default-spacing: var(--space-2xs);
     }
   }
@@ -137,7 +141,11 @@ article {
   }
 
   figcaption {
+    font-size: var(--step--1);
     margin-block-start: var(--space-2xs);
-    color: var(--gray-400);
+    color: oklch(from var(--gray-800) calc(l + 0.3) c h);
+  }
+  p code {
+    font-weight: bold;
   }
 }
