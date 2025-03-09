@@ -26,6 +26,11 @@
   /* Step 5: 28.8325px → 59.7197px */
   --step-5: clamp(1.802rem, 0.9582rem + 3.6991vw, 3.7325rem);
 
+  /*LineHeight*/
+  --body-lineHeight: 1.7;
+  --heading-lineHeight: 1.1;
+  --heading-lineHeight-s: 1.25;
+
   /*line spacing*/
   /* Space 3xs: 4px → 6px */
   --space-3xs: clamp(0.25rem, 0.1954rem + 0.2395vw, 0.375rem);
@@ -45,9 +50,89 @@
   --space-2xl: clamp(4rem, 3.1257rem + 3.8323vw, 6rem);
   /* Space 3xl: 96px → 144px */
   --space-3xl: clamp(6rem, 4.6886rem + 5.7485vw, 9rem);
+
+  --default-spacing: var(--space-2xs);
 }
 
 body {
   font-family: system-ui, sans-serif;
+  /* font-size: var(--step--1); */
+}
+
+article {
+  font-size: var(--step-0);
+  max-width: 65ch;
   margin-inline: auto;
+  > * + * {
+    margin-block-start: var(--default-spacing);
+  }
+  h1 {
+    font-size: var(--step-5);
+  }
+  h2 {
+    font-size: var(--step-4);
+    --default-spacing: var(--space-2xl);
+  }
+
+  h2:has(+ h3) {
+    margin-block-end: var(--space-2xs);
+    color: purple;
+  }
+  /*Her vælges h3 som ikke er den første h3, men nr to h3*/
+  h3:not(:first-of-type):nth-of-type(2) {
+    --default-spacing: var(--space-2xs);
+    color: yellow;
+  }
+  h3 {
+    color: lightsalmon;
+    font-size: var(--step-3);
+    --default-spacing: var(--space-l);
+  }
+
+  h4 {
+    font-size: var(--step-2);
+    --default-spacing: var(--space-m);
+  }
+  h3,
+  h4 {
+    line-height: var(--heading-lineHeight-s);
+  }
+  .text-lead {
+    --default-spacing: var(--space-s);
+    font-size: var(--step-1);
+  }
+  .text-lead:is(p) {
+    color: red;
+  }
+  .text-small {
+    font-size: var(--step--1);
+  }
+
+  p {
+    line-height: var(--body-lineHeight);
+    /*når et <p> kommer efter et andet element som ikke er <p>*/
+
+    /*Når der er to <p> efter hinanden*/
+    & + & {
+      --default-spacing: var(--space-xs);
+    }
+    *:not(&) + & {
+      color: orange;
+      --default-spacing: var(--space-2xs);
+    }
+  }
+
+  /* :is(h2 + p, h3 + p, h4 + p):not(figcaption) {
+    color: green;
+    --default-spacing: var(--space-2xs);
+  } */
+  /*ER lidt i tvivl om om hvad * selector?  */
+  figure {
+    --default-spacing: var(--space-xs);
+  }
+
+  figcaption {
+    margin-block-start: var(--space-2xs);
+    color: var(--gray-400);
+  }
 }
