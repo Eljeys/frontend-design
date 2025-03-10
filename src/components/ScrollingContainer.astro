@@ -14,31 +14,37 @@ const { cardContent } = Astro.props;
 </ul>
 
 <style>
+ 
   :root{
-    scroll-snap-type: x mandatory;
-    --card-padding:;
-    --content-width: ;
-    --card-gap:;
-    --card-border-radius:;
-    --card-background:;
-    --card-text-color:;
+    --card-padding:3rem;
+    --content-width:75rem;
+    --card-gap:.5rem;
+    --card-border-radius:1rem;
+    --card-background: rgb(225, 222, 222);
+    --card-text-color:black;
   }
   ul {
-    border: solid red;
+    margin-block-start: 2rem;
     list-style: none;
     display: flex;
     overflow-x: auto;
-    padding-inline: max(1rem, 50% - var(--content-width) / 2);
-    /* scroll-snap-align: center;
-    scroll-snap-stop: always; */
+    scroll-snap-type: x mandatory;
+    gap:var(--card-gap);
+    scroll-snap-stop: always;
     > * {
     flex: 1 0 45%;
   }
 }
+.full-width{
+  padding-inline: max(1rem, 50% - var(--content-width) / 2);
+}
 
 li{
-  
-border: solid orange;
+  scroll-snap-align: center;
+  background-color: var(--card-background);
+  gap: var(--card-gap);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
 }
   
 /*
