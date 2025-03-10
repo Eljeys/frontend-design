@@ -27,20 +27,48 @@ import { cardContent } from "../data/card-content.js";
           </p>
         </header>
 
-        <ScrollingContainer cardContent={cardContent} />
+        <ScrollingContainer cardContent={cardContent} class="full" />
       </section>
     </main>
   </body>
 </html>
 
 <style>
+  :root{
+    --content-width: 75rem;
+
+  }
+  
   main {
     padding-block: 4rem; /* Kun af æstetiske årsager */
+    /* display: grid;
+    grid-template-columns: 1fr minmax(0, var(--content-width)) 1fr;
+    > * {
+    grid-column: 2;
+    } */
+  }
 
+  
+  header {
+   border: solid yellow;
+   display: grid;
+    grid-template-columns: 1fr minmax(0, var(--content-width)) 1fr;
+    
+    > * {
+    grid-column: 2;
+    }
 
 
   }
-  section {
-   
-  }
+  /* section {
+   border: solid yellow;
+   display: grid;
+    grid-template-columns: 1fr minmax(0, var(--content-width)) 1fr;
+    
+    > * {
+    grid-column: 2;
+    }
+
+
+  } */
 </style>
