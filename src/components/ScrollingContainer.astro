@@ -24,6 +24,13 @@ const { cardContent } = Astro.props;
     --card-text-color:black;
   }
   ul {
+    
+    grid-column: 1 / -1;
+    /* display: flex; */
+    /* padding-inline: max(20px, 50% - var(--content-width) / 2) */
+    
+   
+    
     margin-block-start: 2rem;
     list-style: none;
     display: flex;
@@ -31,15 +38,20 @@ const { cardContent } = Astro.props;
     scroll-snap-type: x mandatory;
     gap:var(--card-gap);
     scroll-snap-stop: always;
-    > * {
+    /* > * {
     flex: 1 0 45%;
-  }
+  } */
 }
 .full-width{
   padding-inline: max(1rem, 50% - var(--content-width) / 2);
 }
 
 li{
+  
+  flex-basis: min(95%, 400px);
+  flex-shrink: 0;
+  
+ 
   scroll-snap-align: center;
   background-color: var(--card-background);
   gap: var(--card-gap);
